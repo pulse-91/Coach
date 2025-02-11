@@ -1,11 +1,14 @@
 package com.example.coach.modele;
 
+import java.util.Date;
+
 public class Profil {
     private static final long serialVersionUID = 1L;
     private int poids;
     private int taille;
     private int age;
     private int sexe;
+    private Date dateMesure;
     private float img = 0;
     private String message = "";
 
@@ -15,11 +18,12 @@ public class Profil {
     private static final Integer minHomme = 10; // maigre si en dessous
     private static final Integer maxHomme = 25; // gros si au dessus
 
-    public Profil(int poids, int taille, int age, int sexe) {
+    public Profil(int poids, int taille, int age, int sexe, Date dateMesure) {
         this.poids = poids;
         this.taille = taille;
         this.age = age;
         this.sexe = sexe;
+        this.dateMesure = dateMesure;
     }
 
     public int getPoids() {
@@ -36,6 +40,10 @@ public class Profil {
 
     public int getSexe() {
         return sexe;
+    }
+
+    public Date getDateMesure() {
+        return dateMesure;
     }
 
     public float getImg() {

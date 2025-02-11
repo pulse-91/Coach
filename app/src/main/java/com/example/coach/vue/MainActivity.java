@@ -2,6 +2,7 @@ package com.example.coach.vue;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         txtTaille = (EditText) findViewById(R.id.txtTaille) ;
         txtAge = (EditText) findViewById(R.id.txtAge) ;
         rdHomme = (RadioButton) findViewById(R.id.rdHomme) ;
+        rdFemme = (RadioButton) findViewById(R.id.rdFemme) ;
         lblIMG = (TextView) findViewById(R.id.lblIMG) ;
         imgSmiley = (ImageView) findViewById(R.id.imgSmiley) ;
         btnCalc = (Button) findViewById(R.id.btnCalc) ;
