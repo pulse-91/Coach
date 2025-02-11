@@ -1,6 +1,7 @@
 package com.example.coach.modele;
 
 public class Profil {
+    private static final long serialVersionUID = 1L;
     private int poids;
     private int taille;
     private int age;

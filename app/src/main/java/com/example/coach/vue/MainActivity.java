@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtTaille;
     private EditText txtAge;
     private RadioButton rdHomme;
+    private RadioButton rdFemme;
     private TextView lblIMG;
     private ImageView imgSmiley;
     private Button btnCalc;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void affichResult(int poids, int taille, int age, int sexe) {
-        controle.creerProfil(poids, taille, age, sexe);
+        controle.creerProfil(poids, taille, age, sexe, this);
 
         float img = controle.getImg();
         String message = controle.getMessage();
@@ -90,6 +91,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void recupProfil() {
+        if (controle.getTaille() != null) {
+            txtPoids.setText("" + controle.getPoids());
+            txtTaille.setText("" + controle.getTaille());
+            txtAge.setText("" + controle.getAge());
+            rdHomme.setChecked(controle.getSexe() == 1);
+            rdFemme.setChecked(controle.getSexe() == 0);
+
+            btnCalc.performClick(); // Simule le clic pour recalculer l'IMG
+        }
+    }
+
     private void init() {
         txtPoids = (EditText) findViewById(R.id.txtPoids) ;
         txtTaille = (EditText) findViewById(R.id.txtTaille) ;
@@ -99,9 +112,10 @@ public class MainActivity extends AppCompatActivity {
         imgSmiley = (ImageView) findViewById(R.id.imgSmiley) ;
         btnCalc = (Button) findViewById(R.id.btnCalc) ;
 
-        controle = Controle.getInstance();
+        controle = Controle.getInstance(this);
 
         ecouteCalcul();
+        recupProfil();
     }
 
     @Override
